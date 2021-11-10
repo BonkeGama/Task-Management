@@ -1,0 +1,83 @@
+﻿@model TaskA.Models.Tasker
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Tasker Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.Service_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.Service_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Cellnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Cellnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Tellnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Tellnum)
+        </dd>
+
+        <dt>
+            <h3>Completed Orders</h3> 
+        </dt>
+        <dd>
+            <h1> @ViewBag.Taskers</h1> 
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")  |
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Tasker_ID })
+    }
+
+</p>

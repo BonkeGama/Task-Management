@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TaskA.Models.ToolSet>
+
+@{
+    ViewBag.Title = "Borrow";
+}
+   <h2>Available Tools </h2>
+<hr />
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        TaskA.Models.ApplicationDbContext db = new TaskA.Models.ApplicationDbContext();
+
+        var findPerson = (from i in db.ToolSets
+                          where i.Tool_ID == item.Tool_ID
+                          select i.ServiceCat_ID).FirstOrDefault();
+
+        var description = (from i in db.Services
+                    where i.ServiceCat_ID == findPerson
+                    select i.Service_Description).FirstOrDefault();
+
+        var findStatus = (from i in db.ToolSets
+                          where i.Tool_ID == item.Tool_ID
+                          select i.availability).FirstOrDefault();
+        if (findStatus == true)
+        {
+
+            <div class="col-md-3">
+                <div class="container">
+                    <div class="card" style="width:250px">
+                        @if (item.ToolImage != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.ToolImage);
+                            var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@ImgSource" lt="Card image" width="250" height="250" />
+
+                        }
+                        <div class="card-body">
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Tool_SetName)</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.ServiceCat.Category)</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.availability)</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem=> description)</p>
+
+
+                            <a href="@Url.Action("Create", "BookTools", new { id = item.Tool_ID }, null)" class="btn btn-primary btn-sm">
+                                <p>Book tool</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+<br />

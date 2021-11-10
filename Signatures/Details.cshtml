@@ -1,0 +1,34 @@
+﻿@model TaskA.Models.Signature
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Signature</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ToolSet.Tool_SetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToolSet.Tool_SetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MySignature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MySignature)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Signature_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

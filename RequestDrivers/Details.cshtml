@@ -1,0 +1,60 @@
+﻿@model TaskA.Models.RequestDriver
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Request Driver Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskerFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskerFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskerCellNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskerCellNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RDriver_ID }) 
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿<br />
+<br />
+<br />
+<style type="text/css">
+    h1 {
+        color: green;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+</style>
+<div align="center">
+    @if (User.IsInRole("Admin"))
+    {
+        <table>
+
+            <tr>
+                <td>
+                    <h1>Total Bookings:</h1>
+                </td>
+                <td>
+                    <h1> @ViewBag.Count</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1> Total Taskers:</h1>
+                </td>
+                <td>
+                    <h1> @ViewBag.Taskers</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>Total Drivers:</h1>
+                </td>
+                <td>
+                    <h1> @ViewBag.Drivers</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>Total Clients:</h1>
+                </td>
+                <td>
+                    <h1> @ViewBag.Clients</h1>
+                </td>
+            </tr>
+
+        </table>
+    }
+</div>
+
+

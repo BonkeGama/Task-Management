@@ -1,0 +1,66 @@
+﻿@model TaskA.Models.ToolSet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ToolSet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceCat.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceCat.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tool_SetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tool_SetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToolImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToolImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QRCodeText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QRCodeText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QRCodeImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QRCodeImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availability)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Tool_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

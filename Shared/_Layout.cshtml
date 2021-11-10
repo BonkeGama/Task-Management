@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Task A</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<style type="text/css">
+        body {
+            background-color: #00ff90;
+        }
+    </style>*@
+
+</head>
+@*<body background="~/Images/solid-background-nude.jpg">*@
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="font-family:Constantia"> TA|TASK A</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+
+                </button>
+                @*@Html.ActionLink("TA|TASK A", "Index", "Home", new { area = "" }, new { @class = "navbar-brand active" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("Driver"))
+                    {
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("DriverRequest", "Orders", new { @class = "mynav nav-item active" })">Delivery List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "DriverWallets")">Driver Commission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "RequestDrivers")">Driver Requests</a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Client"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Details", "Clients")">My Profile</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Mybookings", "Bookings")">Booking History</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Win", "Spins")">Rewards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("TrackOrder", "Orders")">Track Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Taskers")">Taskers Info</a>
+                        </li>
+
+                    }
+                    @if (User.IsInRole("Tasker"))
+                    {
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("MyOrders", "Orders")">Job Requests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("ReturnTool", "BookTools")">Return Tools</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("SendEmail", "Taskers")">Task Completion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "TWallets")">Tasker Commission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Create", "RequestDrivers")">Request Driver</a>
+                        </li>
+
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                User Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="@Url.Action("AddRole", "Roles")">User Roles</a> |
+                                <a class="nav-link" href="@Url.Action("Index", "Clients")">Users</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AllBookings", "Bookings")">Order</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Taskers")">Taskers</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Driver
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="@Url.Action("Index", "Drivers")">Drivers</a> |
+
+                                <a class="nav-link" href="@Url.Action("Index", "RequestDrivers")">Request Drivers</a>
+
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Vehicles
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="@Url.Action("Create", "VehicleModels")">Vehicle Models</a> |
+                                <a class="nav-link" href="@Url.Action("Create", "Vehicles")">Vehicles</a>
+
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Services
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="@Url.Action("Create", "ServiceCats")">Service Category</a> |
+                                <a class="nav-link" href="@Url.Action("Create", "Services")">Services</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Wallets
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="@Url.Action("Create", "DriverWallets")">Driver</a> |
+                                <a class="nav-link" href="@Url.Action("Create", "TWallets")">Tasker</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Status
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="@Url.Action("Create", "BookingStatus")">Booking</a> |
+                                <a class="nav-link" href="@Url.Action("Create", "OrderStatus")">Orders</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Create", "ToolSets")">Tools</a>
+                        </li>
+
+                    }
+                    @if (!User.IsInRole("Admin") && !User.IsInRole("Driver") && !User.IsInRole("Tasker"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Create", "Quotes")">Make Quote</a>
+                        </li>
+                    }
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - Task A Application</p>
+            </footer>*@
+
+        @*<style type="text/css">
+                footer {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 60px;
+                }
+            </style>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

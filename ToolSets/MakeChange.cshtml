@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TaskA.Models.ToolSet>
+
+@{
+    ViewBag.Title = "MakeChange";
+}
+
+<h2>MakeChange</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCat.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tool_SetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToolImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QRCodeText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QRCodeImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availability)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceCat.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tool_SetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToolImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QRCodeText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QRCodeImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availability)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Tool_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Tool_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Tool_ID })
+        </td>
+    </tr>
+}
+
+</table>

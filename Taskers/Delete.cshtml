@@ -1,0 +1,93 @@
+﻿@model TaskA.Models.Tasker
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tasker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.Service_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.Service_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_IDNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_IDNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Cellnumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Cellnumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker_Tellnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker_Tellnum)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

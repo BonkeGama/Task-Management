@@ -1,0 +1,40 @@
+﻿@model TaskA.Models.Signature
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Signature</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ToolSet.Tool_SetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToolSet.Tool_SetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MySignature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MySignature)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<TaskA.Models.Quote>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCat.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Produced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceRender_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskA_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination_Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Render_hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transport_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RenderService_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quote_Cost)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceCat.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Produced)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceRender_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskA_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination_Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Render_hours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transport_Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenderService_Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quote_Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Quote_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Quote_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Quote_ID })
+            </td>
+        </tr>
+    }
+
+</table>

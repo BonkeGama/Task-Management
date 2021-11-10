@@ -1,0 +1,28 @@
+﻿@model TaskA.Models.VehicleModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<br />
+<br />
+
+<div>
+    <h4> Edit Vehicle Model</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Model_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

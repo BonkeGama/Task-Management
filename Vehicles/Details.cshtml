@@ -1,0 +1,62 @@
+﻿@model TaskA.Models.Vehicle
+
+@{
+    ViewBag.Title = "Details";
+  
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div>
+    <h4>Vehicle Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleModel.Vehicle_model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleModel.Vehicle_model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle_color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle_color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VinNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VinNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.liter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.liter)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Vehicle_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

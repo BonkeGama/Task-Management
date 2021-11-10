@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TaskA.Models.RequestDriver>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Driver Requests</h2>
+@if (User.IsInRole("Tasker"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Driver.Driver_Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaskerFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskerCellNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Driver.Driver_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaskerFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaskerCellNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDate)
+        </td>
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.RDriver_ID })
+
+            
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.RDriver_ID })
+            }
+            @Html.ActionLink("Details", "Details", new { id = item.RDriver_ID })
+        </td>
+    </tr>
+        }
+
+    </table>

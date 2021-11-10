@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>TaskA</title>
+    <!-- core CSS -->
+    <link href="~/Content/enlive/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/enlive/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/enlive/css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/enlive/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/Content/enlive/css/styles.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/enlive/css/slider-style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/enlive/css/slider-custom.css" />
+    <script type="text/javascript" src="~/Content/enlive/js/modernizr.custom.79639.js"></script>
+    <!--[if lt IE 9]>
+    <script src="~/Content/enlive/js/html5shiv.js"></script>
+    <script src="~/Content/enlive/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+</head>
+
+<body id="home">
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="~/Content/enlive/images/freelancer.png" alt="logo" style="width:200px;height:60px;"></a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        @if (User.IsInRole("Driver"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Details", "Drivers")">My Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("DriverRequest", "Orders")">Delivery List</a>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Client"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Details", "Clients")">My Profile</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Mybookings", "Bookings")">Booking History</a>
+                            </li>
+                        }
+
+
+                        @if (User.IsInRole("Tasker"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Details", "Taskers")">My Profile</a>
+                            </li>
+                            @*<li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+            </li>*@
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("MyOrders", "Orders")">Job Requests</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("AllBookings", "Bookings")">All Pending Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Create", "Quotes")">Make Quote</a>
+                        </li>
+                        @if (!User.IsInRole("Admin") && !User.IsInRole("Driver") && !User.IsInRole("Tasker"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("HomePage", "Home")">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Login", "Account")">Log-in</a>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+    <br />
+    <br />
+    <div class="jumbotron" style="background-color:white">
+        <div class="row">
+            <div class="col-lg-4">
+                <h2 style="text-align:center;color:#dd4b39;font-family:'Bradley Hand ITC'"><b>Washing windows Service</b></h2>
+                <img src="~/Content/enlive/images/window.jpeg" style="width: 400px;height:300px;" />
+            </div>
+            <div class="col-lg-4">
+                <h2 style="text-align:center;color:#dd4b39;font-family:'Bradley Hand ITC'"><b>Plumbing Service</b></h2>
+                <img src="~/Content/enlive/images/plumbing.jpeg" style="width: 400px;height:300px;" />
+            </div>
+            <div class="col-lg-4">
+                <h2 style="text-align:center;color:#dd4b39;font-family:'Bradley Hand ITC'"><b>Best Trimmed Grass</b></h2>
+                <img src="~/Content/enlive/images/grass.jpeg" style="width: 400px;height:300px;" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer id="footer"style="background-color:silver;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2021 TaskA. Template by TaskA_Freelancers<a target="_blank" href="http://webthemez.com/" title="TaskA.com</a>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="~/Content/enlive/js/jquery.js"></script>
+    <script src="~/Content/enlive/js/bootstrap.min.js"></script>
+    <script src="~/Content/enlive/js/mousescroll.js"></script>
+    <script src="~/Content/enlive/js/smoothscroll.js"></script>
+    <script src="~/Content/enlive/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Content/enlive/js/jquery.isotope.min.js"></script>
+    <script src="~/Content/enlive/js/jquery.inview.min.js"></script>
+    <script src="~/Content/enlive/js/wow.min.js"></script>
+    <script type="text/javascript" src="~/Content/enlive/js/jquery.ba-cond.min.js"></script>
+    <script type="text/javascript" src="~/Content/enlive/js/jquery.slitslider.js"></script>
+    <script type="text/javascript" src="~/Content/enlive/js/slitslider-custom.js"></script>
+    <script src="~/Content/enlive/js/custom-scripts.js"></script>
+</body>
+</html>
