@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TaskA.Models.Booking>
+
+@{
+    ViewBag.Title = "AllBookings";
+   
+
+}
+<br />
+<br />
+
+<h2>All Pending Bookings</h2>
+<div class="col-md-12">
+                <div class="container col-lg-6">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="col-md-3">
+                                <div class="shadow p-3 mb-5 bg-white rounded">
+
+                                    <p>Recipient Name: @Html.DisplayFor(modelItem => item.Book_RecipientName)</p>
+                                    <p>Recipient Name: @Html.DisplayFor(modelItem => item.Book_RecipientNumber)</p>
+                                    <p>Service Description: @Html.DisplayFor(modelItem => item.Booking_RenderNote)</p>
+                                    <p>Address: @Html.DisplayFor(modelItem => item.Quote.ServiceRender_Address)</p>
+
+                                    <p>Render Sevice Date: @Html.DisplayFor(modelItem => item.Booking_RenderDate)</p>
+                                    <a href='@Url.Action("Create", "Orders", new { id = item.Book_ID }, null)' class="btn btn-success">Accept</a>
+                                    <a href='@Url.Action("Decline", "Bookings", new { id = item.Book_ID }, null)' class="btn btn-danger">Decline</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+

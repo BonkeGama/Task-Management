@@ -1,0 +1,138 @@
+﻿@model IEnumerable<TaskA.Models.Booking>
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Mybookings";
+
+}
+
+<br />
+<br />
+<div class="col-md-12">
+
+                <div class="container col-lg-6">
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            Find by name: @Html.TextBox("SearchString")
+                            <input type="submit" value="Search" />
+                        </p>
+                    }
+
+                    <br>
+                    <br>
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Quote.ServiceRender_Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Booking_date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Booking_RenderDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_RecipientName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_RecipientSurname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Paymentstatus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_RecipientNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Booking_RenderNote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_TotalCost)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BookingStatus.Booking_Status)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Truncate(item.Quote.ServiceRender_Address, 15)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Booking_date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Booking_RenderDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_RecipientName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_RecipientSurname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Paymentstatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_RecipientNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Booking_RenderNote)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_TotalCost)
+                                </td>
+                                <td>
+
+
+                                    @if (item.BookingStatus.Booking_Status == "Declined")
+                                    {
+                                        <text> <span style="color:red;"> @item.BookingStatus.Booking_Status</span> </text>
+                                    }
+                                    else
+                                    if (item.BookingStatus.Booking_Status == "Approved")
+                                    {
+                                        <text> <span style="color:green;">@item.BookingStatus.Booking_Status</span> </text>
+                                    }
+                                    else
+                                    {
+                                        <text> <span style="color:orange;">@item.BookingStatus.Booking_Status</span> </text>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Paymentstatus == true && item.BookingStatus.Booking_Status != "Pending")
+                                    {
+                                        TaskA.Models.ApplicationDbContext db = new TaskA.Models.ApplicationDbContext();
+
+                                        var findOrderid = (from i in db.Orders
+                                                           where i.Book_ID == item.Book_ID
+                                                           select i.Order_ID).SingleOrDefault();
+
+                                        var findQRid = (from i in db.QRCodes
+                                                        where i.Order_ID == findOrderid
+                                                        select i.QRId).SingleOrDefault();
+
+                                        <a href='@Url.Action("Details", "QRCodes", new { id = findQRid }, null)' class="btn btn-primary">View Invoice</a>
+
+                                    }
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>

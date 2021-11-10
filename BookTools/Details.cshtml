@@ -1,0 +1,34 @@
+﻿@model TaskA.Models.BookTool
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookTool</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tasker.Tasker_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tasker.Tasker_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tool_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tool_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookTool_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

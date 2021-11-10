@@ -1,0 +1,116 @@
+﻿@model TaskA.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+
+
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="col-md-12">
+
+
+                <div class="container col-lg-6">
+
+                    <div>
+
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.BookingStatus.Booking_Status)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BookingStatus.Booking_Status)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Client.User_IDNo)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Client.User_IDNo)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Quote.ServiceRender_Address)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Quote.ServiceRender_Address)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Booking_date)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Booking_date)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Booking_RenderDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Booking_RenderDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Book_RecipientName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Book_RecipientName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Book_RecipientSurname)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Book_RecipientSurname)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Paymentstatus)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Paymentstatus)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Book_RecipientNumber)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Book_RecipientNumber)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Booking_RenderNote)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Booking_RenderNote)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Book_TotalCost)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Book_TotalCost)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Book_ID }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                </div>
+            </div>

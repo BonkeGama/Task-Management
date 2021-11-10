@@ -1,0 +1,104 @@
+﻿@model IEnumerable<TaskA.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+   
+
+}
+
+
+<br />
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="col-md-12">
+
+
+                <div class="container col-lg-6">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BookingStatus.Booking_Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Client.User_IDNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Quote.ServiceRender_Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Booking_date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Booking_RenderDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_RecipientName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_RecipientSurname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Paymentstatus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_RecipientNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Booking_RenderNote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Book_TotalCost)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BookingStatus.Booking_Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Client.User_IDNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quote.ServiceRender_Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Booking_date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Booking_RenderDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_RecipientName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_RecipientSurname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Paymentstatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_RecipientNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Booking_RenderNote)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Book_TotalCost)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Book_ID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Book_ID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Book_ID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>

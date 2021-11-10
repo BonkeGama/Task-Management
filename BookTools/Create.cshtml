@@ -1,0 +1,27 @@
+﻿@model TaskA.Models.BookTool
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Booking Tool</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Tool_ID)
+    <div class="form-horizontal">
+        <h4>Confirm booking tool</h4>
+        <hr />
+        <p>Confirm the Booking for this tool</p>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirm" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
